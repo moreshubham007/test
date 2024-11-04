@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Drip - Login</title>
+    <link rel="stylesheet" href="login.css">
+    <!-- Google Sign-In API -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo">
+                <h1>Email Drip</h1>
+                <p>Campaign Scheduler</p>
+            </div>
+            
+            <form class="login-form">
+                <div class="input-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+                
+                <div class="divider">
+                    <span>or</span>
+                </div>
+
+                <div id="g_id_onload"
+                     data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                     data-callback="handleGoogleSignIn">
+                </div>
+                <div class="g_id_signin"
+                     data-type="standard"
+                     data-size="large"
+                     data-theme="outline"
+                     data-text="sign_in_with"
+                     data-shape="rectangular"
+                     data-width="280">
+                </div>
+            </form>
+
+            <div class="footer-links">
+                <a href="#">Forgot Password?</a>
+                <a href="#">Sign Up</a>
+            </div>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html> 

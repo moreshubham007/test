@@ -1,0 +1,15 @@
+email-campaign-scheduler/
+├── src/
+│   ├── routes/
+│   ├── controllers/
+│   ├── models/
+│   ├── middleware/
+│   └── config/
+├── public/
+│   ├── css/
+│   ├── js/
+│   └── images/
+├── views/
+├── tests/
+├── .gitignore
+└── package.json 

@@ -1,0 +1,122 @@
+Hi,
+Here is our requirement, below I have also attached UI design link (adobe
+xd) for your reference.
+Overview
+This document outlines the requirements, architecture, and implementation
+plan for developing an in-house email automation tool. The tool will be
+hosted on AWS and will integrate with Microsoft 365 and Google
+Workspace to manage over 300 email IDs. It will support campaign-based
+email sending, track delivery rates, handle complex follow-up schedules,
+manage email templates, implement a global blocking feature, and provide
+a comprehensive tagging system. The tool will also include a proper inbox
+send setup similar to Outlook for the sales team to manage follow-ups with
+clients.
+Requirements
+Functional Requirements
+1. Integration with Email Services
+• Connect and manage over 300 Microsoft 365 and
+Google Workspace email IDs (including server IDs).
+2. Email Campaign Management
+• Support campaigns with 100 projects, each having 500
+companies and 3 email recipients per company (person
+1, person 2, person 3).
+• Schedule and send emails as part of a campaign.
+• Template management for each project to customize
+emails.
+• Define and manage follow-up emails with specific dates
+and times.
+• Allow customizable delay times between emails.
+• Implement a global blocking feature to stop emails to
+contacts who reply with "Not interested."
+3. Tracking and Reporting
+• Track email delivery rates and provide reports.
+• Monitor reply and other email metrics.
+4. IP Management
+• Connect multiple IP addresses.
+• Ensure each email is sent from a different IP address to
+avoid spam filters.
+5. Inbox Send Setup
+• Establish a proper inbox send setup, similar to Outlook,
+for all connected email IDs.
+• Enable the sales team to follow up with clients directly
+from the system.
+6. Tagging System
+• Implement a tagging system to organize and categorize
+projects, companies, and emails for easy management.
+Non-Functional Requirements
+1. Scalability
+• System must scale to handle large volumes of emails
+and multiple campaigns simultaneously.
+2. Security
+• Ensure secure connection and authentication for email
+services.
+• Protect email content and user data.
+3. Performance
+• Optimize email sending and tracking processes to handle
+high loads efficiently.
+4. Reliability
+• Ensure high availability and reliability of the email
+sending service.
+Architecture
+High-Level Architecture
+1. User Interface
+• Web-based dashboard for managing email campaigns,
+tracking metrics, and configuring settings.
+• Integrated email client interface for sales team followups.
+2. Backend Services
+• Email Campaign Service: Handles the creation,
+scheduling, and sending of emails.
+• Tracking Service: Monitors email delivery and tracks
+relevant metrics.
+• IP Management Service: Manages and assigns IP
+addresses for sending emails.
+• Email Integration Service: Connects with Microsoft 365
+and Google Workspace.
+• Inbox Management Service: Provides an Outlook-like
+email interface for the sales team.
+• Template Management Service: Manages email
+templates for different projects.
+• Tagging Service: Manages tags for organizing projects,
+companies, and emails.
+3. Database
+• Stores campaign details, email content, templates,
+scheduling information, user data, tags, and tracking
+metrics..
+Detailed Component Description
+Email Campaign Service
+Functionality: Create, schedule, and manage email campaigns. Send
+emails based on predefined schedules.
+Tracking Service
+Functionality: Monitor email delivery, track opens, clicks, bounces, and
+other relevant metrics.
+IP Management Service
+Functionality: Assign and rotate IP addresses for email sending to avoid
+spam filters.
+Email Integration Service
+Functionality: Connect to Microsoft 365 and Google Workspace for
+sending emails. Handle authentication and secure connections.
+Inbox Management Service
+Functionality: Provide an email interface similar to Outlook for the sales
+team to manage follow-ups.
+Template Management Service
+Functionality: Create, store, and manage email templates for different
+projects.
+Tagging Service
+Functionality: Organize and categorize projects, companies, and emails
+using tags.
+Security Considerations
+• Implement OAuth 2.0 for secure authentication with email
+services.
+• Encrypt sensitive data at rest and in transit.
+• Regular security audits and updates to address vulnerabilities.
+Performance Optimization
+• Use AWS SES for efficient email delivery.
+• Implement caching for frequently accessed data.
+• Optimize database queries and use indexing for faster access.
+Conclusion
+This document provides a comprehensive overview of the requirements,
+and implementation plan for the email automation tool. By following this
+plan, we aim to develop a robust, scalable, and efficient system for
+managing email campaigns, tracking their performance, managing email
+templates, implementing global blocking, and enabling the sales team to
+manage client follow-ups effectively.

@@ -1,0 +1,133 @@
+DripsendPro - How to Run
+=======================
+
+Prerequisites
+------------
+1. Node.js (v16 or higher)
+2. PostgreSQL (v13 or higher)
+3. Git
+4. Gmail/Outlook Developer Account
+
+Step 1: Clone and Setup
+----------------------
+1. Clone the repository:
+   git clone <repository-url>
+   cd dripsendpro
+
+2. Install root dependencies:
+   npm install
+
+3. Install frontend and backend dependencies:
+   npm run install:all
+
+Step 2: Database Setup
+---------------------
+1. Start PostgreSQL service:
+   # For Ubuntu/Debian:
+   sudo service postgresql start
+   
+   # For Windows:
+   # Start PostgreSQL service from Services
+
+2. Create database:
+   sudo -u postgres psql
+   CREATE DATABASE dripsendpro;
+   CREATE USER postgres WITH PASSWORD 'postgres';
+   GRANT ALL PRIVILEGES ON DATABASE dripsendpro TO postgres;
+   \q
+
+Step 3: Environment Configuration
+-------------------------------
+1. Backend configuration:
+   cd backend
+   cp .env.example .env
+
+   Update .env with:
+   PORT=5000
+   NODE_ENV=development
+   DB_NAME=dripsendpro
+   DB_USER=postgres
+   DB_PASSWORD=postgres
+   DB_HOST=localhost
+   JWT_SECRET=your_jwt_secret_key
+   GOOGLE_CLIENT_ID=your_google_client_id
+   GOOGLE_CLIENT_SECRET=your_google_client_secret
+   GOOGLE_REDIRECT_URI=http://localhost:5000/api/auth/google/callback
+   FRONTEND_URL=http://localhost:3000
+
+2. Frontend configuration:
+   cd ../frontend
+   cp .env.example .env
+
+   Update .env with:
+   REACT_APP_API_URL=http://localhost:5000
+
+Step 4: Database Migration and Seeding
+-----------------------------------
+cd backend
+npm run migrate
+npm run seed
+
+Step 5: Running the Application
+-----------------------------
+Method 1: Running locally
+1. Start backend:
+   cd backend
+   npm run dev
+
+2. In a new terminal, start frontend:
+   cd frontend
+   npm start
+
+Method 2: Using Docker
+1. Build and start containers:
+
+2. Initialize database:
+   npm run docker:migrate
+   npm run docker:seed
+
+Access the Application
+--------------------
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:5000
+
+Test Account Credentials
+----------------------
+Email: test@example.com
+Password: password123
+
+Common Issues and Solutions
+-------------------------
+1. Database connection error:
+   - Check if PostgreSQL is running
+   - Verify database credentials in .env
+   - Run: sudo service postgresql restart
+
+2. Port already in use:
+   - Check if ports 3000 and 5000 are free
+   - Kill processes if needed:
+     sudo lsof -i :3000
+     sudo lsof -i :5000
+     kill -9 <PID>
+
+3. Node modules issues:
+   - Clear node_modules:
+     rm -rf node_modules package-lock.json
+     npm install
+
+4. Docker issues:
+   - Reset Docker:
+     npm run docker:clean
+     npm run docker:prune
+   - Rebuild:
+     npm run docker:build
+
+Useful Commands
+-------------
+- Start development servers: npm run dev
+- Start production servers: npm start
+- View Docker logs: npm run docker:logs
+- Stop Docker containers: npm run docker:down
+- Clean Docker: npm run docker:clean
+
+For more detailed information, refer to the README.md file. 
